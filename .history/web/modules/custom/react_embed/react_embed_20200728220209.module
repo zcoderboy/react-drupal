@@ -1,0 +1,7 @@
+<?php
+
+function react_embed_preprocess_block(&$variables)
+{
+  if($variables['plugin_id'] == "react")
+  var_dump($variables['plugin_id']);
+}

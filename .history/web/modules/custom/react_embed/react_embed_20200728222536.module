@@ -1,0 +1,16 @@
+<?php
+
+function react_embed_preprocess_block(&$variables)
+{
+  if ($variables['plugin_id'] == "react_app_block") {
+    $base_path = drupal_get_path('module', 'react_embed');
+    $raw = file_get_contents($base_path . '/data.config.json');
+    $data_conf = json_decode($raw);
+    // $block = \Drupal\block_content\Entity\BlockContent::load(2);
+    // $data = $block->get('field_step')->getValue()[0]['value'];
+    foreach ($data_conf as $key => $value) {
+      echo ($value);
+    }
+  }
+  $variables['content']['#attached']['drupalSettings']['reactApp']['data'] = $data_conf;
+}

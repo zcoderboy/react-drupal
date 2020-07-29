@@ -1,0 +1,10 @@
+<?php
+
+function react_embed_preprocess_block(&$variables)
+{
+  if ($variables['plugin_id'] == "react_app_block") {
+    $raw = file_get_contents('./data.config.json');
+    $data_conf = json_decode($raw);
+    $variables['content']['#attached']['drupalSettings']['reactApp']['data'] = $data_conf;
+  }
+}

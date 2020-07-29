@@ -1,0 +1,9 @@
+name: react-drupal-embed
+recipe: drupal8
+services:
+  phpservice:
+    type: php:7.3
+config:
+  webroot: ./web
+  config:
+  php: '7.3'

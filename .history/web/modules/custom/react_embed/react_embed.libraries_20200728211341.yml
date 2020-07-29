@@ -1,0 +1,5 @@
+react-bundle:
+  js:
+    js/dist/index.js: { preprocess: false }
+    dependencies:
+   - core/drupalSettings

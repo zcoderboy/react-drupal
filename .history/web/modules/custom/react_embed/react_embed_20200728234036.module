@@ -1,0 +1,32 @@
+<?php
+
+use Drupal\media\Entity\Media;
+use \Drupal\block_content\Entity\BlockContent;
+
+function react_embed_preprocess_block(&$variables)
+{
+  if ($variables['plugin_id'] == "react_app_block") {
+    $raw = file_get_contents(drupal_get_path('module', 'react_embed') . '/data.config.json');
+    $data_conf = json_decode($raw);
+    $data = array();
+    foreach ($data_conf as $conf) {
+      $block = BlockContent::load($conf->block_id);
+      foreach ($conf->fields as $field) {
+        switch ($field->type) {
+          case 'default':
+            $variables['content']['#attached']['drupalSettings']['drupalData'][$field->name] = $block->get($field->name)->getValue()[0]['value'];
+            break;
+
+          case 'media':
+            $media = Media::load($block->get($field->name)->getString());
+            $uri = $media_entity_load->field_media_video_file->entity->getFileUri(); // It is for image media.
+            // $media_url = file_create_url($uri); // Here you will get URL of 
+            break;
+          default:
+            # code...
+            break;
+        }
+      }
+    }
+  }
+}

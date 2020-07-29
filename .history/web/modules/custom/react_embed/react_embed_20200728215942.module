@@ -1,0 +1,10 @@
+<?php
+
+function react_embed_preprocess_block(&$variables)
+{
+  if ($variables['block']->bid === 'target_block_id') {
+    // do something for this block
+  } else if ($variables['block']->bid === 'other_target_block_id') {
+    // do something else for this other block
+  }
+}

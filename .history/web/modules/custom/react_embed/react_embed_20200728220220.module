@@ -1,0 +1,8 @@
+<?php
+
+function react_embed_preprocess_block(&$variables)
+{
+  if($variables['plugin_id'] == "react_app_block"){
+    
+  }
+}

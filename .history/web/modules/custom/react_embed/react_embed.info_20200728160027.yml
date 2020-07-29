@@ -1,0 +1,6 @@
+name: React embedded
+description: Embed react app within Drupal".
+package: Custom
+
+type: module
+core: ^8 || ^9

@@ -1,0 +1,6 @@
+<?php
+
+function react_embed_preprocess_block(&$variables)
+{
+  var_dump()
+}

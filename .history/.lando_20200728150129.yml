@@ -1,0 +1,4 @@
+name: react-drupal-embed
+recipe: drupal8
+config:
+  webroot: ./web

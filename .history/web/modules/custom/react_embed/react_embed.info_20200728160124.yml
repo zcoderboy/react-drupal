@@ -1,0 +1,6 @@
+name: React embedded
+description: Embed react app within Drupal".
+package: Custom
+
+type: module
+core_versio_requirement: ^8 || ^9
